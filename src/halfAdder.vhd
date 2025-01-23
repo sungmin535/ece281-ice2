@@ -20,6 +20,13 @@
 --|    o_<port name>            = on-chip output port
 --|
 --+----------------------------------------------------------------------------
+--| FILENAME      : halfAdder.vhd
+--| AUTHOR(S)     : C3C Sungmin Park
+--| CREATED       : 01/21/2025
+--| DESCRIPTION   : This file implements a one bit half adder.
+--|
+--| DOCUMENTATION : None
+
 library ieee;
   use ieee.std_logic_1164.all;
   use ieee.numeric_std.all;
@@ -29,8 +36,8 @@ entity halfAdder is
   port(
 	i_A     : in  std_logic; -- 1-bit input port
 	i_B     : in  std_logic; 
-	o_S     : out std_logic  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
-	-- TODO:  Carry port
+	o_S     : out std_logic;  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
+	o_Cout  : out std_logic   -- TODO:  Carry port
   ); -- the semicolon is here instead
 end halfAdder;
 
@@ -42,6 +49,6 @@ begin
 
 	-- *concurrent* signal assignments
 	o_S    <= i_A xor i_B;
-	-- TODO:  Carry signal assignment
+	o_Cout <= i_A and i_B;-- TODO:  Carry signal assignment
 	
 end halfAdder_arch;
